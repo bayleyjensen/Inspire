@@ -3,19 +3,16 @@ import Weather from "./models/weather.js";
 let _state = {
   /**@type {Weather} */
   weather: new Weather({ name: "loading", main: { temp: 0.0 } }), //temporary fake data
-  error: {}, //TODO change 'any' to your todo model
-  /**@type {any[]}*/ todos: []
+  /**@type {any[]}*/
+  todos: [] //TODO change 'any' to your todo model
 };
 
 /** Collection of listeners to be called based on keyed state changes
  * @type {{[x:string]: function[]}}
  */
 let _listeners = {
-  weather: [],
-  error: []
+  weather: []
 };
-
-//NOTE You should not need to change the code from this point down
 
 /**
  * Validates the property string is defined in both the state and the listeners
