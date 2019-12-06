@@ -7,9 +7,11 @@ const todoApi = axios.create({
 });
 
 class TodoService {
-  async getTodos() {
+  //FIXME fix getTodos
+  async getTodosAsync() {
     console.log("Getting the Todo List");
     let res = await todoApi.get();
+    store.commit("todos", new Todo(res.data));
     //TODO Handle this response from the server
   }
 
