@@ -12,12 +12,18 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/2190dfec95.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body id="bg-image">
-    <div id="weather">
-      Your Weather Template
-    </div>
+    <button
+      class=" btn fas fa-poo-storm fa-2x"
+      onclick="app.weatherController.getWeather()"
+    ></button>
+    <div id="weather"></div>
 
     <div id="quote">
       The Quote
@@ -29,7 +35,6 @@
       <form onsubmit=""></form>
       <div id="todos"></div>
     </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
     <script type="module" src="app/main.js"></script>
   </body>

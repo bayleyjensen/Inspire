@@ -4,7 +4,7 @@ import store from "../store.js";
 // @ts-ignore
 const weatherApi = axios.create({
   baseURL: "//bcw-sandbox.herokuapp.com/api/weather",
-  timeout: 3000
+  timeout: 9000
 });
 
 class WeatherService {
