@@ -1,5 +1,5 @@
 import store from "../store.js";
-
+import Todo from "../models/todos.js";
 // @ts-ignore
 const todoApi = axios.create({
   baseURL: "https://bcw-sandbox.herokuapp.com/api/bayley/todos/",
@@ -12,8 +12,9 @@ class TodoService {
     console.log("Getting the Todo List");
     let res = await todoApi.get();
     store.commit("todos", new Todo(res.data));
-    //TODO Handle this response from the server
+    console.log("this is my todos data", res.data);
   }
+  // TODO Handle this response from the server
 
   async addTodoAsync(todo) {
     let res = await todoApi.post("", todo);

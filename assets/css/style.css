@@ -5,3 +5,7 @@
 #bg-image {
   height: 100vh;
 }
+
+body {
+  background-image: url("");
+}

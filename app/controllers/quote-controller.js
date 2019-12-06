@@ -1,12 +1,11 @@
 import QuoteService from "../services/quote-service.js";
-import Store from "../store.js";
 import store from "../store.js";
 import quoteService from "../services/quote-service.js";
 
 function _drawQuote() {
   let template = "";
   let quote = store.State.quote;
-  document.getElementById("quote").innerHTML = template;
+  document.getElementById("quote").innerHTML = quote.Template;
 }
 
 //TODO Create methods for constructor, and rendering the quote to the page

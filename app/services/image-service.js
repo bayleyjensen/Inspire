@@ -1,4 +1,5 @@
 import store from "../store.js";
+import Image from "../models/image.js";
 
 // @ts-ignore
 const _imgApi = axios.create({
@@ -6,17 +7,15 @@ const _imgApi = axios.create({
   timeout: 8000
 });
 
-// // @ts-ignore
-// const _sandbox = axios.create({
-//   baseURL: "//bcw-sandbox.herokuapp.com/api/bayley/images", // is this necessary?
-//   timeout: 8000
-// });
 //TODO create methods to retrieve data trigger the update window when it is complete
 class ImageService {
   async getImageAsync() {
-    let res = await _imgApi.get("");
-    store.commit("image", new Image(res.data));
-    console.log("this is my background imgage", res);
+    return await _imgApi.get("").then(res => {
+      let results = new Image(res.data);
+      console.log("this is from sandbox", res.data);
+      store.commit("image", results);
+      console.log("this is my background image in store", store.State.image);
+    });
   }
 }
 

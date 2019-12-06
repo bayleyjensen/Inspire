@@ -7,8 +7,8 @@ import imageService from "../services/image-service.js";
 
 //private
 function _drawImage() {
-  let image = store.State.image;
-  document.getElementById("bg-image").style.background = "${this.URL}";
+  let template = store.State.image.URL;
+  document.body.style.backgroundImage = ` url('${template}')`;
 }
 
 //TODO Create methods for constructor, and rendering the image to the page
@@ -16,7 +16,7 @@ function _drawImage() {
 export default class ImageController {
   constructor() {
     console.log("hello from Image controller");
-    imageService.getImageAsync();
     store.subscribe("image", _drawImage);
+    imageService.getImageAsync();
   }
 }
