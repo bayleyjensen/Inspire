@@ -5,17 +5,17 @@ import Todos from "../models/todos.js";
 
 //TODO Create the render function
 function _drawTodos() {
+  let template = "";
   let todos = store.State.todos;
-  document.getElementById("todos").innerHTML = todos.Template;
+  document.getElementById("todos").innerHTML = template;
 }
 //TODO //make template and model //
 
 export default class TodoController {
   constructor() {
     console.log("Hola from the Todo controller");
-    store.subscribe("todos", _drawTodos);
-    //TODO Remember to register your subscribers
     TodoService.getTodosAsync();
+    store.subscribe("todos", _drawTodos);
   }
 
   async getTodosAsync() {
@@ -26,15 +26,15 @@ export default class TodoController {
     }
   }
 
-  async addTodoAsync(e) {
+  async addTodoAsync(event) {
+    event.preventDefault();
+    var formData = event.target;
     debugger;
-    e.preventDefault();
-    var form = e.target;
-    var todo = {
-      //TODO build the todo object from the data that comes into this method
+    let newTodo = {
+      description: formData.description.value
     };
     try {
-      await TodoService.addTodoAsync(todo);
+      await TodoService.addTodoAsync(newTodo);
     } catch (error) {
       debugger;
       console.error("[ERROR]:", error);

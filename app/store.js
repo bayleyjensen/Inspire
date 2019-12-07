@@ -4,9 +4,9 @@ import Image from "./models/image.js";
 import Todos from "./models/todos.js";
 
 let _state = {
+  image: {},
   /**@type {Weather} */
   weather: new Weather({ name: "loading", main: { temp: 0.0 } }), //temporary fake data
-  image: {},
   /**@type {Todos[]}*/
   todos: [], //TODO change 'any' to your todo model
   /** @type {Quote} */

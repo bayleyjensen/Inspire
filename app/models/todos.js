@@ -8,7 +8,6 @@ export default class Todo {
 
   get Template() {
     return /*html*/ `
-    <form onsubmit=""></form>
-    <div id="todos"></div>`;
+    <div id="todos">${this.description}</div>`;
   }
 }

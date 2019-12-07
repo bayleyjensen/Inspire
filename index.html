@@ -35,9 +35,25 @@
 
     <div>
       A Todo List
-      <form onsubmit="app.todoController.addTodoAsync()">
-        <button type="submit" class="btn btn-primary"></button>
-      </form>
+      <div class="col-4 border bg-info rounded shadow-lg mt-3">
+        <form
+          class="text-left p-3"
+          onsubmit="app.todoController.addTodoAsync(event)"
+        >
+          <div class="form-group">
+            <label for="description">Todo List</label>
+            <input
+              type="text"
+              name="description"
+              class="form-group"
+              placeholder="Enter Todo..."
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary ">Submit</button>
+        </form>
+      </div>
+
       <div id="todos"></div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
