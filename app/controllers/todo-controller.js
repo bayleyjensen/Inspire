@@ -1,6 +1,7 @@
 import TodoService from "../services/todo-service.js";
 import store from "../store.js";
 import todoService from "../services/todo-service.js";
+import Todos from "../models/todos.js";
 
 //TODO Create the render function
 function _drawTodos() {
@@ -25,7 +26,8 @@ export default class TodoController {
     }
   }
 
-  async addTodo(e) {
+  async addTodoAsync(e) {
+    debugger;
     e.preventDefault();
     var form = e.target;
     var todo = {

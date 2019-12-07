@@ -1,14 +1,14 @@
 import Weather from "./models/weather.js";
 import Quote from "./models/quote.js";
 import Image from "./models/image.js";
+import Todos from "./models/todos.js";
 
 let _state = {
   /**@type {Weather} */
   weather: new Weather({ name: "loading", main: { temp: 0.0 } }), //temporary fake data
-  /**@type {any[]}*/
-  todos: [], //TODO change 'any' to your todo model
-  /**@type {Image} */
   image: {},
+  /**@type {Todos[]}*/
+  todos: [], //TODO change 'any' to your todo model
   /** @type {Quote} */
   quote: new Quote({ name: "quoteLoading", main: {} })
 };

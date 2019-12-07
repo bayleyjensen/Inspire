@@ -35,8 +35,9 @@
 
     <div>
       A Todo List
-      <div id="todo-error"></div>
-      <form onsubmit=""></form>
+      <form onsubmit="app.todoController.addTodoAsync()">
+        <button type="submit" class="btn btn-primary"></button>
+      </form>
       <div id="todos"></div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
