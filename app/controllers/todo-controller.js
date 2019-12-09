@@ -5,17 +5,19 @@ import Todos from "../models/todos.js";
 
 //TODO Create the render function
 function _drawTodos() {
-  let template = "";
   let todos = store.State.todos;
+  let template = "";
+  todos.forEach(t => (template += t.Template));
   document.getElementById("todos").innerHTML = template;
+  let activeTodo = store.State.todos.length;
+  document.getElementById("todo-number").innerHTML = `${activeTodo}`;
 }
 //TODO //make template and model //
 
 export default class TodoController {
   constructor() {
-    console.log("Hola from the Todo controller");
-    TodoService.getTodosAsync();
     store.subscribe("todos", _drawTodos);
+    TodoService.getTodosAsync();
   }
 
   async getTodosAsync() {
@@ -28,8 +30,7 @@ export default class TodoController {
 
   async addTodoAsync(event) {
     event.preventDefault();
-    var formData = event.target;
-    debugger;
+    let formData = event.target;
     let newTodo = {
       description: formData.description.value
     };
@@ -52,7 +53,7 @@ export default class TodoController {
   }
 
   //NOTE This method will pass an Id to your service for the TODO that will need to be deleted
-  async removeTodo(todoId) {
+  async removeTodoAsync(todoId) {
     try {
       await TodoService.removeTodoAsync(todoId);
     } catch (error) {
