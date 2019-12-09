@@ -6,7 +6,7 @@ export default class Weather {
 
     //TODO You should probably convert the temperature data to either F or C
     //      check out the other data that comes back and see if there is anything you want to try
-
+    this.F = (this.kelvin - 273.15) * 1.8 + 32;
     this.city = data.name;
     this.kelvin = data.main.temp;
   }
